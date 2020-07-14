@@ -8,32 +8,46 @@
 
 import React from 'react';
 import {StyleSheet, View, Text, StatusBar} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 
 import Collapse from './components/collapse';
+
+const Stack = createStackNavigator();
+
+const Home = () => (
+  <>
+    <StatusBar barStyle="dark-content" />
+    <View style={styles.root}>
+      <Text>Hello, world!</Text>
+      <Collapse
+        title="Collapse Test Title"
+        description="Collapse Test Description"
+      />
+      <Collapse
+        title="Collapse Test Title"
+        description="Collapse Test Description"
+      />
+      <Collapse
+        title="Collapse Test Title"
+        description="Collapse Test Description"
+      />
+      <Collapse
+        title="Collapse Test Title"
+        description="Collapse Test Description"
+      />
+    </View>
+  </>
+);
 
 const App = () => {
   return (
     <>
-      <StatusBar barStyle="dark-content" />
-      <View style={styles.root}>
-        <Text>Hello, world!</Text>
-        <Collapse
-          title="Collapse Test Title"
-          description="Collapse Test Description"
-        />
-        <Collapse
-          title="Collapse Test Title"
-          description="Collapse Test Description"
-        />
-        <Collapse
-          title="Collapse Test Title"
-          description="Collapse Test Description"
-        />
-        <Collapse
-          title="Collapse Test Title"
-          description="Collapse Test Description"
-        />
-      </View>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Home" component={Home} />
+        </Stack.Navigator>
+      </NavigationContainer>
     </>
   );
 };
