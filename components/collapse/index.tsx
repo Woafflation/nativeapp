@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import React, {useCallback} from 'react';
 import {
   StyleSheet,
   Text,
@@ -15,18 +15,21 @@ if (Platform.OS === 'android') {
   }
 }
 
-interface IProps {
+export interface IProps {
+  id?: number;
   title: string;
   description: string;
+  isExpanded?: boolean;
+  setIsExpanded?: () => void;
 }
 
-const Collapse = ({title, description}: IProps) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-
+const Collapse = ({title, description, isExpanded, setIsExpanded}: IProps) => {
   const handleIsExpandedChange = useCallback(() => {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
-    setIsExpanded(!isExpanded);
-  }, [setIsExpanded, isExpanded]);
+    if (setIsExpanded) {
+      setIsExpanded();
+    }
+  }, [setIsExpanded]);
 
   return (
     <View style={styles.root}>
