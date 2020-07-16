@@ -23,8 +23,8 @@ const Accordion = ({data}: IProps) => {
           key={id}
           title={title}
           description={description}
-          isExpanded={currentOpenedCollapseId === title}
-          setIsExpanded={() => handleOpenedCollapseChange(title)}
+          isExpanded={currentOpenedCollapseId === String(id)}
+          setIsExpanded={() => handleOpenedCollapseChange(String(id))}
         />
       ))}
     </>
