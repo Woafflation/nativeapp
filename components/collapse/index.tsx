@@ -16,7 +16,7 @@ if (Platform.OS === 'android') {
 }
 
 export interface IProps {
-  id?: number;
+  id?: string;
   title: string;
   description: string;
   isExpanded?: boolean;

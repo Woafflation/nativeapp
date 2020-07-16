@@ -19,9 +19,9 @@ const App = () => {
         <Text>Hello, world!</Text>
         <Accordion
           data={[
-            {id: 0, title: 'Test 1', description: 'Test 1'},
-            {id: 1, title: 'Test 2', description: 'Test 2'},
-            {id: 2, title: 'Test 3', description: 'Test 3'},
+            {id: '0', title: 'Test 1', description: 'Test 1'},
+            {id: '1', title: 'Test 2', description: 'Test 2'},
+            {id: '2', title: 'Test 3', description: 'Test 3'},
           ]}
         />
       </View>
