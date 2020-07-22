@@ -16,7 +16,8 @@ import {
 
 import Collapse from './components/collapse';
 import DraggableGrid from './components/draggable-grid';
-
+import Accordion from './components/accordion';
+        
 const Stack = createStackNavigator();
 
 type RootStackParamList = {
@@ -33,28 +34,19 @@ type AccordionProps = {
   navigation: AccordionScreenNavigationProp;
 };
 
-const Accordion = ({navigation}: AccordionProps) => (
+const AccordionScreen = ({navigation}: AccordionProps) => (
   <>
     <StatusBar barStyle="dark-content" />
     <View style={styles.root}>
       <Button title="Go to Grid" onPress={() => navigation.navigate('Grid')} />
       <Text>Hello, world!</Text>
-      <Collapse
-        title="Collapse Test Title"
-        description="Collapse Test Description"
-      />
-      <Collapse
-        title="Collapse Test Title"
-        description="Collapse Test Description"
-      />
-      <Collapse
-        title="Collapse Test Title"
-        description="Collapse Test Description"
-      />
-      <Collapse
-        title="Collapse Test Title"
-        description="Collapse Test Description"
-      />
+      <Accordion
+          data={[
+            {id: '0', title: 'Test 1', description: 'Test 1'},
+            {id: '1', title: 'Test 2', description: 'Test 2'},
+            {id: '2', title: 'Test 3', description: 'Test 3'},
+          ]}
+       />
     </View>
   </>
 );
@@ -99,7 +91,7 @@ const App = () => {
     <>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="Accordion" component={Accordion} />
+          <Stack.Screen name="Accordion" component={AccordionScreen} />
           <Stack.Screen name="Grid" component={Grid} />
         </Stack.Navigator>
       </NavigationContainer>
